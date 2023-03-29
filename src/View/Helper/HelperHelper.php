@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Helper;
 
+use Cake\Utility\Inflector;
 use Cake\View\Helper;
 use Cake\View\View;
 
@@ -19,8 +20,17 @@ class HelperHelper extends Helper
      */
     protected $_defaultConfig = [];
 
-    public function addSIfNeeded($number)
+    public function pluralizeIfNeeded($slug, $count)
     {
-        return $number > 1 || $number === 0 ? 's' : '';
+        return $count > 1 || $count === 0 ?
+            Inflector::pluralize($slug) :
+            Inflector::singularize($slug);
+    }
+
+    public function addSIfNeeded($count)
+    {
+        return $count > 1 || $count === 0 ?
+            's' :
+            '';
     }
 }

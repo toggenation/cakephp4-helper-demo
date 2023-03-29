@@ -19,12 +19,7 @@ class HelperController extends AppController
     public function index()
     {
         $helper = [
-            0,
-            1,
-            15,
-            33,
-            1,
-            0
+            4, 5, 0, 3, 19, 1, 2, 1, 5, 0
         ];
 
         $this->set(compact('helper'));
